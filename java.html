@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Based Access</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Map</Map></h1>
+
+    <script>
+        
+        function getUserLocation() {
+            
+            let location = prompt("Please enter your location (e.g., Punjab, Haryana, Chandigarh):");
+            location = location.toLowerCase();
+
+            if (location === "punjab" || location === "haryana" || location === "chandigarh") {
+                handleLogin(location);
+            } else {
+                alert("Access Denied");
+            }
+        }
+
+        
+        function handleLogin(location) {
+            const username = prompt("Enter your username:");
+            const password = prompt("Enter your password:");
+
+            
+            const correctUsername = "sujal";
+            const correctPassword = "2377";
+
+            if (username === correctUsername && password === correctPassword) {
+                
+                let mapUrl;
+                if (location === "punjab") {
+                    mapUrl = "https://www.google.com/maps/place/Punjab";
+                } else if (location === "haryana") {
+                    mapUrl = "https://www.google.com/maps/place/Haryana";
+                } else if (location === "chandigarh") {
+                    mapUrl = "https://www.google.com/maps/place/Chandigarh";
+                }
+                window.location.href = mapUrl;
+            } else {
+                alert("Wrong credentials");
+            }
+        }
+
+        
+        getUserLocation();
+    </script>
+</body>
+</html>
